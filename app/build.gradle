@@ -1,7 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+def opencvZip = file("src/main/native/Jni.zip")  // path to your zip
+def opencvUnzipDir = file("$buildDir/opencv_sdk")
 
+task unzipOpenCV(type: Copy) {
+    from zipTree(opencvZip)
+    into opencvUnzipDir
+}
+
+preBuild.dependsOn(unzipOpenCV)
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.0"
