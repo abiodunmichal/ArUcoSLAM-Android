@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-def opencvZip = file("src/main/native/Jni.zip")  // path to your zip
+def opencvZip = file("app/src/main/Native/Jni/jni.zip")  // path to your zip
 def opencvUnzipDir = file("$buildDir/opencv_sdk")
 
 task unzipOpenCV(type: Copy) {
